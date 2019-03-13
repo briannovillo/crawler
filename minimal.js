@@ -28,5 +28,14 @@ sites.forEach(site => {
     saveObjectIntoFile("./scraped/"+new Date().getTime()+".html", responseBuffer);
   });
 
+  /*
+    // If lambda exec time is reaching over 15 minutes, freeze queue for continue on another execution
+    if(minutes > 15) {
+      crawler.queue.freeze("mysavedqueue.json", function () {
+        process.exit();
+      });
+    }
+  */
+
   crawler.start();
 });
